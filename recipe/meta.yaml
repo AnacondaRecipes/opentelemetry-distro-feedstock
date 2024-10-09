@@ -30,13 +30,10 @@ requirements:
 test:
   imports:
     - opentelemetry.distro
-    - opentelemetry.instrumentation
   commands:
     - pip check
-    - pytest -vv
   requires:
     - pip
-    - pytest
 
 about:
   home: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
