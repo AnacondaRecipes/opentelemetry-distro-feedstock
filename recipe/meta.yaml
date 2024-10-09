@@ -33,7 +33,7 @@ test:
     - opentelemetry.instrumentation
   commands:
     - pip check
-    - pytest -v tests
+    - pytest -vv
   requires:
     - pip
     - pytest
