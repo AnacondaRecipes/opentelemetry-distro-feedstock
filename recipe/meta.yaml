@@ -33,6 +33,7 @@ test:
     - opentelemetry.instrumentation
   commands:
     - pip check
+    - pytest -v tests
   requires:
     - pip
 
@@ -41,6 +42,7 @@ about:
   summary: OpenTelemetry Python Distro
   license: Apache-2.0
   license_file: LICENSE
+  license_family: Apache
   description: |
     This package provides entrypoints to configure OpenTelemetry.
   doc_url: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
