@@ -10,17 +10,19 @@ source:
   sha256: 5cb15915780ac4972583286a56683d43bd4ca95371d72f5f3f179c8b0b2ddc91
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
   number: 0
+  skip: True # [py<38]
 
 requirements:
   host:
-    - python >=3.7
+    - python
     - pip
     - hatchling
+    - setuptools
+    - wheel
   run:
-    - python >=3.7
+    - python
     - opentelemetry-api >=1.12,<2.dev0
     - opentelemetry-instrumentation =={{ version }}
     - opentelemetry-sdk >=1.13,<2.dev0
@@ -34,10 +36,16 @@ test:
     - pip
 
 about:
-  home: https://pypi.org/project/opentelemetry-distro/
+  home: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
   summary: OpenTelemetry Python Distro
-  license: 'Apache-2.0'
+  license: Apache-2.0
   license_file: LICENSE
+  license_family: Apache
+  description: |
+    This package provides entrypoints to configure OpenTelemetry.
+  doc_url: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
+  dev_url: https://pypi.org/project/opentelemetry-distro/
+
 
 extra:
   recipe-maintainers:
