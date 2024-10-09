@@ -30,7 +30,7 @@ requirements:
 test:
   imports:
     - opentelemetry.distro
-    - opentelemetry.
+    - opentelemetry.instrumentation
   commands:
     - pip check
   requires:
