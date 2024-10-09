@@ -37,10 +37,15 @@ test:
     - pip
 
 about:
-  home: https://pypi.org/project/opentelemetry-distro/
+  home: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
   summary: OpenTelemetry Python Distro
   license: Apache-2.0
   license_file: LICENSE
+  description: |
+    This package provides entrypoints to configure OpenTelemetry.
+  doc_url: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
+  dev_url: https://pypi.org/project/opentelemetry-distro/
+
 
 extra:
   recipe-maintainers:
