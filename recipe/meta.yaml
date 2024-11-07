@@ -24,6 +24,8 @@ requirements:
     - opentelemetry-api >=1.12,<2.dev0
     - opentelemetry-instrumentation =={{ version }}
     - opentelemetry-sdk >=1.13,<2.dev0
+  run_constrained:
+    - opentelemetry-exporter-otlp 1.26.0
 
 test:
   imports:
