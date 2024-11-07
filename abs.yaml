@@ -1,6 +1,1 @@
 aggregate_check: False
-channels:
-  - https://staging.continuum.io/prefect/fs/opentelemetry-instrumentation-feedstock/pr3/7413212
-
-
-  
