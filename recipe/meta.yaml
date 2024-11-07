@@ -19,8 +19,6 @@ requirements:
     - python
     - pip
     - hatchling
-    - setuptools
-    - wheel
   run:
     - python
     - opentelemetry-api >=1.12,<2.dev0
