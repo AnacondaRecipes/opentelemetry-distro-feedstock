@@ -1,50 +1,54 @@
 {% set name = "opentelemetry-distro" %}
-{% set version = "0.48b0" %}
+{% set version = "0.59b0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_distro-{{ version }}.tar.gz
-  sha256: 5cb15915780ac4972583286a56683d43bd4ca95371d72f5f3f179c8b0b2ddc91
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace("-", "_") }}-{{ version }}.tar.gz
+  sha256: a72703a514e1773d35d1ec01489a5fd1f1e7ce92e93cf459ba60f85b880d0099
 
 build:
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
   number: 0
   skip: True # [py<38]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
 
 requirements:
   host:
-    - python
     - pip
+    - python
     - hatchling
-    - setuptools
-    - wheel
   run:
     - python
-    - opentelemetry-api >=1.12,<2.dev0
     - opentelemetry-instrumentation =={{ version }}
+    - opentelemetry-api >=1.12,<2.dev0
     - opentelemetry-sdk >=1.13,<2.dev0
+  run_constrained:
+    - opentelemetry-exporter-otlp ==1.38.0
 
 test:
+  source_files:
+    - tests
   imports:
     - opentelemetry.distro
   commands:
     - pip check
+    - pytest -v tests
   requires:
     - pip
+    - pytest
 
 about:
   home: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
-  summary: OpenTelemetry Python Distro
   license: Apache-2.0
   license_file: LICENSE
   license_family: Apache
+  summary: OpenTelemetry Python Distro
   description: |
     This package provides entrypoints to configure OpenTelemetry.
   doc_url: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/opentelemetry-distro
-  dev_url: https://pypi.org/project/opentelemetry-distro/
+  dev_url: https://pypi.org/project/opentelemetry-distro
 
 
 extra:
